@@ -18,12 +18,12 @@ const TodoList = () => {
       {/* 해결방법 : https://tlsdnjs12.tistory.com/56 */}
       {todos.map((todo) => {
         return (
-          <TodoContainer key={todo.id}>
+          <StTodoContainer key={todo.id}>
             <h3>{todo.title}</h3>
             <button onClick={() => onDeleteButtonClickHandler(todo.id)}>
               삭제
             </button>
-          </TodoContainer>
+          </StTodoContainer>
         );
       })}
     </section>
@@ -32,7 +32,7 @@ const TodoList = () => {
 
 export default TodoList;
 
-const TodoContainer = styled.div`
+const StTodoContainer = styled.div`
   max-width: 30vh;
   border: 1px solid black;
   border-radius: 10px;
