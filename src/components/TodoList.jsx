@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { delete_todo } from "redux/modules/actions";
+import { delete_todo, isdone_todo } from "redux/modules/actions";
 
 import styled from "styled-components";
 
@@ -8,29 +8,57 @@ const TodoList = () => {
 
   const dispatch = useDispatch();
 
+  const ingTodos = todos.filter((todo) => !todo.isDone);
+  const doneTodos = todos.filter((todo) => todo.isDone);
+
   const onDeleteButtonClickHandler = (id) => {
     dispatch(delete_todo(id));
   };
 
+  const onToggleButtonClickHandler = (id) => {
+    dispatch(isdone_todo(id));
+  };
+
   return (
-    <section>
-      {/* TypeError: Cannot read property 'map' of undefined 오류 발생 */}
-      {/* 해결방법 : https://tlsdnjs12.tistory.com/56 */}
-      {todos.map((todo) => {
+    <StSection>
+      <h2>진행 중 🔥</h2>
+      {ingTodos.map((todo) => {
         return (
           <StTodoContainer key={todo.id}>
             <h3>{todo.title}</h3>
             <button onClick={() => onDeleteButtonClickHandler(todo.id)}>
               삭제
             </button>
+            <button onClick={() => onToggleButtonClickHandler(todo.id)}>
+              {todo.isDone ? "진행 중.." : "완료!"}
+            </button>
           </StTodoContainer>
         );
       })}
-    </section>
+
+      <h2>완료 ✨</h2>
+        {doneTodos.map((todo) => {
+          return (
+            <StTodoContainer key={todo.id}>
+              <h3>{todo.title}</h3>
+              <button onClick={() => onDeleteButtonClickHandler(todo.id)}>
+                삭제
+              </button>
+              <button onClick={() => onToggleButtonClickHandler(todo.id)}>
+                {todo.isDone ? "진행 중.." : "완료!"}
+              </button>
+            </StTodoContainer>
+          );
+        })}
+    </StSection>
   );
 }
 
 export default TodoList;
+
+const StSection = styled.section`
+  width: 95%;
+`;
 
 const StTodoContainer = styled.div`
   max-width: 30vh;

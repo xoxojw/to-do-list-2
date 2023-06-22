@@ -33,13 +33,13 @@ export const todos = (state = initialState, action) => {
     case ISDONE_TODO:
       return {
         todos: state.todos.map((todo) => {
-          if (todo.id === action.id) {
+          if (todo.id === action.isDone) {
             return { ...todo, isDone: !todo.isDone };
           } else {
             return todo;
           }
         })
-      };
+      };      
       
     default:
       return state;
