@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { delete_todo, isdone_todo } from "redux/modules/actions";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -26,6 +27,7 @@ const TodoList = () => {
       {ingTodos.map((todo) => {
         return (
           <StTodoContainer key={todo.id}>
+          <Link to={`/${todo.id}`}>상세보기</Link>
             <h3>{todo.title}</h3>
             <button onClick={() => onDeleteButtonClickHandler(todo.id)}>
               삭제
@@ -41,6 +43,7 @@ const TodoList = () => {
         {doneTodos.map((todo) => {
           return (
             <StTodoContainer key={todo.id}>
+            <Link to={`/${todo.id}`}>상세보기</Link>
               <h3>{todo.title}</h3>
               <button onClick={() => onDeleteButtonClickHandler(todo.id)}>
                 삭제
