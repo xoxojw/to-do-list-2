@@ -5,6 +5,7 @@ import uuid from "react-uuid";
 const AddTodo = ({todos, setTodos}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  
   return (
     <>
     <section>
