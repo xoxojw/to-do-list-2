@@ -2,7 +2,7 @@
 import { createStore } from "redux";
 import { combineReducers } from "redux";
 
-import { todos } from "redux/modules/reducer";
+import { todos } from "redux/modules/todos";
 
 // rootReducer: reducer들을 모아서 하나로 만들어 놓은 기본 reducer
 const rootReducer = combineReducers({
