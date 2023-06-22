@@ -1,30 +1,10 @@
-import { useSelector } from "react-redux";
-
-import AddForm from "components/AddForm";
-import TodoList from "components/TodoList";
-
-const headerStyle = {
-  backgroundColor: "salmon",
-  padding: "10px"
-}
-
-const footerStyle = {
-  backgroundColor: "skyblue",
-  padding: "10px"
-}
+import React from 'react';
+import Router from "shared/Router";
 
 const App = () => {
-  const todos = useSelector((state) => state);
-  console.log(todos);
-
   return (
     <>
-    <header style={headerStyle}>헤더영역</header>
-    <main>
-      <AddForm />
-      <TodoList />
-    </main>
-    <footer style={footerStyle}>푸터영역</footer>
+      <Router />
     </>
   )
 }
