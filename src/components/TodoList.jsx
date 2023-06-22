@@ -11,6 +11,7 @@ const TodoList = () => {
   const ingTodos = todos.filter((todo) => !todo.isDone);
   const doneTodos = todos.filter((todo) => todo.isDone);
 
+  // dispatch: Action을 Reducer에게 전달
   const onDeleteButtonClickHandler = (id) => {
     dispatch(delete_todo(id));
   };
