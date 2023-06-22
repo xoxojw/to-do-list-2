@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import AddForm from "components/AddForm";
 import TodoList from "components/TodoList";
+
+import styled from "styled-components";
 
 const Home = () => {
   const todos = useSelector((state) => state);
@@ -11,24 +12,28 @@ const Home = () => {
 
   return (
     <>
-    <header style={headerStyle}>헤더영역</header>
+    <StHeader><StTitle>My To-do List</StTitle></StHeader>
     <main>
       <AddForm />
       <TodoList />
     </main>
-    <footer style={footerStyle}>푸터영역</footer>
+    <StFooter>내일배움캠프 React 6기 To-do List 과제2</StFooter>
     </>
   )
 }
 
 export default Home;
 
-const headerStyle = {
-  backgroundColor: "salmon",
-  padding: "10px"
-}
+const StHeader = styled.header`
+  background-color: salmon;
+  padding: 30px;
+`
 
-const footerStyle = {
-  backgroundColor: "skyblue",
-  padding: "10px"
-}
+const StTitle = styled.h1`
+  font-size: 2rem;
+`
+
+const StFooter = styled.footer`
+  background-color: skyblue;
+  padding: 30px;
+  `;
