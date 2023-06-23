@@ -26,16 +26,15 @@ New My To-do List with Redux, React-router-dom, Styled-components
 
 ```
 📦 
-├─ 📜.gitignore
 ├─ 📂public
 │  └─ 📜index.html
 ├─ 📂src
+│  ├─ 📜index.js
 │  ├─ 📜App.jsx
 │  ├─ 📜GlobalStyle.jsx
 │  ├─ 📂components
 │  │  ├─ 📜AddForm.jsx
 │  │  └─ 📜TodoList.jsx
-│  ├─ 📜index.js
 │  ├─ 📂pages
 │  │  ├─ 📜Details.jsx
 │  │  └─ 📜Home.jsx
@@ -47,6 +46,7 @@ New My To-do List with Redux, React-router-dom, Styled-components
 │  │     └─ 📜todos.js
 │  └─ 📂shared
 │     └─ 📜Router.js
+├─ 📜.gitignore
 ├─ 📜jsconfig.json
 ├─ 📜package.json
 └─ 📜yarn.lock
