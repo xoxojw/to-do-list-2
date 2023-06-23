@@ -7,10 +7,13 @@ import styled from "styled-components";
 
 const AddForm = () => {
   const [inputs, setInputs] = useState({
-    title: '',
-    content: ''
+    title: "",
+    content: "",
   });
   const { title, content } = inputs;
+
+  // dispatch
+  // store의 내장함수로 action(type, payload)을 reducer에게 전달하여 action을 발생시키도록 하는 것
   const dispatch = useDispatch();
 
   const onSubmitHandler = (event) => {
@@ -23,9 +26,14 @@ const AddForm = () => {
         isDone: false,
       })
     );
+
+    // 과제 할 때, const [title, setTitle] = useState(""); / const [content, setContent] = useState(""); 로 title과 content의 state를 각각 설정하고,
+    // setTitle("");
+    // setContent(""); 마지막에 이렇게 두 개를 입력해줬는데 input이 초기화되지 않았음
+    // ❓onSubmitHandler 함수로 따로 작성할 때와, form onSubmit에 직접 함수로 작성할 때가 다른 것인지?
     setInputs({
-      title: '',
-      content: '',
+      title: "",
+      content: "",
     })
   };
 

@@ -6,7 +6,14 @@ import uuid from "react-uuid";
 // 3. Action type은 app/reducer/ACTION_TYPE 형태로 작성한다.
 // => 그래서 모듈 파일 1개에 Action type, Action Creator, Reducer가 모두 존재하는 작성 방식
 
+// -------------------------------------------------------
+
+// Action
+// 2개의 input - 1. type, 2. payload
+// type의 처리를 payload만큼 해준다
+
 // Action values
+// human error를 줄이기 위해서 action type을 변수화해주는 것
 export const ADD_TODO = "ADD_TODO";
 export const DELETE_TODO = "DELETE_TODO";
 export const ISDONE_TODO = "ISDONE_TODO";
@@ -38,7 +45,7 @@ export const isdone_todo = (isDone) => {
   };
 };
 
-// state - 초기 상태값
+// state의 초기 상태값
 const initialState = {
   todos: [
     {
@@ -57,7 +64,11 @@ const initialState = {
 };
 
 // Reducer
+// 2개의 input - 1. state, 2. action
+// output - 새로운 store
+// export 해서 configStore의 combineReducers의 목록에 넣어주기
 export const todos = (state = initialState, action) => {
+  // if문 또는 switch문으로 액션을 지정
   switch (action.type) {
     case ADD_TODO:
       return {...state,
@@ -78,7 +89,7 @@ export const todos = (state = initialState, action) => {
             return todo;
           }
         })
-      };      
+      };
       
     default:
       return state;

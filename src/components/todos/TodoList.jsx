@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const TodoList = () => {
+  // useSelector : store에서 state 값을 반환
+  // useSelector를 사용한 함수에서 store의 상태값이 바뀐 경우에
+  // (버튼 클릭 등의 이벤트를 통해 action이 실행되어 state값이 변경된 경우)
+  // 바뀐 store의 state값을 다시 가져와서 컴포넌트를 리렌더링한다
   const { todos } = useSelector((state) => state.todos);
 
   const dispatch = useDispatch();

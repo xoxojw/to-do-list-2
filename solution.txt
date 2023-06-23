@@ -1,0 +1,19 @@
+1. Redux 세팅
+  - store -> redux/config/configStore.js
+  - reducer -> redux/modules/todos.js
+  - 최상위 컴포넌트인 <App />을 index.js에서 <Provider></Provider>로 래핑
+    - <Provider store={store}></Provider>
+  - export, import 잘 해주기!
+
+2. React-Router-DOM 세팅
+  - React는 SPA이기 때문에 HTML에서 했던 것처럼 a 태그로 페이지를 전환하지 못함
+  - SPA -> 단일 페이지 내에서 컴포넌트를 변경하며 '페이지가 전환되는 것'처럼 보이게 할 뿐
+  - 이것을 도와주는 것이 react-router-dom
+  - router -> shared/Router.jsx
+  - page components -> pages/Home.jsx, Detail.jsx
+  - App.jsx -> <Router /> 를 삽입해줘야 함
+
+3. useSelector
+  - state들을 중앙 store에서 관리하고 있기 때문에
+  - props로 컴포넌트간에 전달해주지 않아도 state에 접근할 수 있다
+  - useSelector가 바로 store의 state값을 가져와주는 역할

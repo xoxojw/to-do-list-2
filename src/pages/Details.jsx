@@ -1,10 +1,16 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 
 const Details = () => {
+  // 내가 사용한 방법 useLocation -> 단순히 url에 입력된 ID값을 따오기 위해 사용
+  // 튜터님이 사용한 방법 useParams -> todo 객체 정보를 가져온다
+  // -> 이 객체 정보는 TodoList.jsx에서
+  //    <Link to={`/${todo.id}`}>상세보기</Link>를 누를 때 넘어옴!
   const navigate = useNavigate();
+  // const params = useParams;
+  // console.log("params =>", params);
   const location = useLocation();
   const todoId = location.pathname.slice(1);
 

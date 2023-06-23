@@ -1,24 +1,15 @@
 import React from "react";
 
-import AddForm from "components/AddForm";
-import TodoList from "components/TodoList";
+import AddForm from "components/todos/AddForm";
+import TodoList from "components/todos/TodoList";
 
 import styled from "styled-components";
+import Header from "components/ui/Header";
 
 const Home = () => {
-  const today = new Date();
-  const weekday = ['일', '월', '화', '수', '목', '금', '토']
-
-  const year = today.getFullYear();
-  const month = today.getMonth() + 1;
-  const date = today.getDate();
-  const day = weekday[today.getDay()];
   return (
     <>
-      <StHeader>
-        <StTitle>My To-do List</StTitle>
-        <p className="header-date">{year}년 {month}월 {date}일 {day}요일</p>
-      </StHeader>
+      <Header />
         <StMain>
           <AddForm />
           <TodoList />
@@ -29,20 +20,6 @@ const Home = () => {
 }
 
 export default Home;
-
-const StHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid salmon;
-
-  padding: 2vh;
-`
-
-const StTitle = styled.h1`
-  font-size: 2em;
-  font-weight: 700;
-`
 
 const StMain = styled.main`
   max-width: 120vh;

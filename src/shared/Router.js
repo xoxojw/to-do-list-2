@@ -6,6 +6,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Route의 필수 요소 2개 - 1. path, 2. element */}
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<Details />} />
       </Routes>
