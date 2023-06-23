@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { delete_todo, isdone_todo } from "redux/modules/actions";
+import { delete_todo, isdone_todo } from "redux/modules/todos";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";

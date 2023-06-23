@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
-import { add_todo } from "redux/modules/actions";
+import { add_todo } from "redux/modules/todos";
 import styled from "styled-components";
 
 
