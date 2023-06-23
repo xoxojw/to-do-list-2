@@ -4,7 +4,6 @@ New My To-do List with Redux, React-router-dom, Styled-components
 <br />
 
 ## 💡 Goal
-- My Todo List 만들기
 - My To-do List를 `React-router-dom`, `Styled-components`, `Redux`를 사용해서 다시 만들어보기
 
 <br />
