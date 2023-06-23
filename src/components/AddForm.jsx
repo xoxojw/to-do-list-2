@@ -6,8 +6,11 @@ import styled from "styled-components";
 
 
 const AddForm = () => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [inputs, setInputs] = useState({
+    title: '',
+    content: ''
+  });
+  const { title, content } = inputs;
   const dispatch = useDispatch();
 
   const onSubmitHandler = (event) => {
@@ -20,7 +23,19 @@ const AddForm = () => {
         isDone: false,
       })
     );
+    setInputs({
+      title: '',
+      content: '',
+    })
   };
+
+  const onChangeHandler = (event) => {
+    const { value, name } = event.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+  }
   
   return (
     <>
@@ -30,7 +45,8 @@ const AddForm = () => {
             name="title"
             type="text"
             placeholder="제목을 입력하세요"
-            onChange={(event) => { setTitle(event.target.value); }}
+            value={title}
+            onChange={onChangeHandler}
             required
         />
           <StInput
@@ -38,7 +54,7 @@ const AddForm = () => {
             type="text"
             placeholder="내용을 입력하세요"
             value={content}
-            onChange={(event) => { setContent(event.target.value); }}
+            onChange={onChangeHandler}
             required
         />
         <StInputButton>제출</StInputButton>
