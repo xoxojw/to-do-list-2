@@ -23,37 +23,44 @@ const TodoList = () => {
 
   return (
     <StSection>
-      <h2>진행 중 🔥</h2>
-      {ingTodos.map((todo) => {
-        return (
-          <StTodoContainer key={todo.id}>
-          <Link to={`/${todo.id}`}>상세보기</Link>
-            <h3>{todo.title}</h3>
-            <button onClick={() => onDeleteButtonClickHandler(todo.id)}>
-              삭제
-            </button>
-            <button onClick={() => onToggleButtonClickHandler(todo.id)}>
-              {todo.isDone ? "진행 중.." : "완료!"}
-            </button>
-          </StTodoContainer>
-        );
-      })}
-
-      <h2>완료 ✨</h2>
-        {doneTodos.map((todo) => {
+      <StListTodos>
+        <StListTitle>진행 중 🔥</StListTitle>
+        <StTodoWrapper>
+        {ingTodos.map((todo) => {
           return (
-            <StTodoContainer key={todo.id}>
-            <Link to={`/${todo.id}`}>상세보기</Link>
-              <h3>{todo.title}</h3>
-              <button onClick={() => onDeleteButtonClickHandler(todo.id)}>
+            <StTodoBox key={todo.id}>
+            <StyledLink to={`/${todo.id}`}>상세보기</StyledLink>
+              <StTodoTitle>{todo.title}</StTodoTitle>
+              <StDeleteButton onClick={() => onDeleteButtonClickHandler(todo.id)}>
                 삭제
-              </button>
-              <button onClick={() => onToggleButtonClickHandler(todo.id)}>
+              </StDeleteButton>
+              <StStatusButton onClick={() => onToggleButtonClickHandler(todo.id)}>
                 {todo.isDone ? "진행 중.." : "완료!"}
-              </button>
-            </StTodoContainer>
+              </StStatusButton>
+            </StTodoBox>
           );
         })}
+        </StTodoWrapper>
+      </StListTodos>
+      <StListTodos>
+       <StListTitle>완료 ✨</StListTitle>
+        <StTodoWrapper>
+        {doneTodos.map((todo) => {
+          return (
+            <StTodoBox key={todo.id}>
+            <StyledLink to={`/${todo.id}`}>상세보기</StyledLink>
+              <StTodoTitle>{todo.title}</StTodoTitle>
+              <StDeleteButton onClick={() => onDeleteButtonClickHandler(todo.id)}>
+                삭제
+              </StDeleteButton>
+              <StStatusButton onClick={() => onToggleButtonClickHandler(todo.id)}>
+                {todo.isDone ? "진행 중.." : "완료!"}
+              </StStatusButton>
+            </StTodoBox>
+          );
+        })}
+        </StTodoWrapper>
+      </StListTodos>
     </StSection>
   );
 }
@@ -61,14 +68,61 @@ const TodoList = () => {
 export default TodoList;
 
 const StSection = styled.section`
-  width: 95%;
+  display: inline-block;
 `;
 
-const StTodoContainer = styled.div`
-  max-width: 30vh;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
+const StListTodos = styled.div`
+  padding: 1em 2em 1em 2em;
 `
 
+const StListTitle = styled.h2`
+  display: inline-block;
+  font-size: 1.5em;
+  padding: 0.5em;
+`
+
+const StTodoWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 1em;
+`
+
+const StTodoBox = styled.div`
+  width: 23vh;
+  border: 3px solid salmon;
+  border-radius: 12px;
+  padding: 1.3em;
+  position: relative;
+  line-height: 2;
+`
+
+const StyledLink = styled(Link)`
+  display: block;
+	color: var(--main-font-color);
+	text-align: right;
+`;
+
+const StTodoTitle = styled.h3`
+  font-size: 1.2em;
+  padding: 0.5em;
+`
+
+const StDeleteButton = styled.button`
+  border: none;
+  width: 6em;
+  height: 3em;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #c19898;
+`
+const StStatusButton = styled.button`
+  border: none;
+  width: 6em;
+  height: 3em;
+  border-radius: 10px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #a1aed3;
+`;
